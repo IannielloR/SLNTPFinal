@@ -24,19 +24,14 @@ namespace SWAdventureWorks_Ianniello.Controllers
             return context.Department.ToList();
         }
 
-        //UPDATE
-        //PUT api/autor/{id}
-        [HttpPut("{id}")]
-        public ActionResult Put(int id, Department department)
+        //Get por Id
+        [HttpGet("{id}")]
+        public ActionResult<Department> GetByID(int id)
         {
-            if (id != department.DepartmentId)
-            {
-                return BadRequest();
-            }
-
-            context.Entry(department).State = EntityState.Modified;
-            context.SaveChanges();
-            return Ok();
+            Department department = (from d in context.Department
+                           where id == d.DepartmentId
+                           select d).SingleOrDefault();
+            return department;
         }
 
         [HttpGet("name/{name}")]
