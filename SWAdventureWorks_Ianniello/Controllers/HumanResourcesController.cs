@@ -56,5 +56,37 @@ namespace SWAdventureWorks_Ianniello.Controllers
 
             return Ok();
         }
+
+        [HttpPut("{id}")]
+        public ActionResult Put(int id, Department department)
+        {
+            if (id != department.DepartmentId)
+            {
+                return BadRequest();
+            }
+
+            context.Entry(department).State = EntityState.Modified;
+            context.SaveChanges();
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        public ActionResult<Department> Delete(int id)
+        {
+            var department = (from d in context.Department
+                         where d.DepartmentId == id
+                         select d).SingleOrDefault();
+
+            if (department == null)
+            {
+                return NotFound();
+            }
+
+            context.Department.Remove(department);
+            context.SaveChanges();
+
+            return department;
+
+        }
     }
 }
