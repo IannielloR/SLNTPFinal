@@ -3,7 +3,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/Provincia",
+      "launchUrl": "api/Ciudad",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -11,7 +11,7 @@
     "SWProvincias_Ianniello": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/Provincia",
+      "launchUrl": "api/Ciudad",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

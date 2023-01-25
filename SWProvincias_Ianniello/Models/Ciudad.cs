@@ -13,6 +13,7 @@ namespace SWProvincias_Ianniello.Models
         public string Nombre { get; set; } 
 
         public int ProvinciaId { get; set; }
+
         [ForeignKey("ProvinciaId")]
         public Provincia Provincia { get; set; }
     }
